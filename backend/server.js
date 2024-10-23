@@ -33,6 +33,6 @@ app.post('/login', (req, res) => {
   })
 })
 
-app.listen(8081, () => {
+app.listen(3306, () => {
   console.log('listening...')
 })
