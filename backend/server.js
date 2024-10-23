@@ -22,7 +22,7 @@ const con = mysql.createConnection(`mysql://root:BWbBZXkveHaGvmOBVXjMLzMzIWZdFfD
 app.post('/login', (req, res) => {
   const sql = "SELECT * FROM login WHERE username = ? AND password = ?";
   
-  db.query(sql, [req.body.email, req.body.password], (err, data) => {
+  con.query(sql, [req.body.email, req.body.password], (err, data) => {
     if(err) return res.json("Login Failed");
     if(data.length > 0) {
       return res.json("Login Successfully");
@@ -33,6 +33,6 @@ app.post('/login', (req, res) => {
   })
 })
 
-app.listen(3306, () => {
+app.listen(3001, () => {
   console.log('listening...')
 })
